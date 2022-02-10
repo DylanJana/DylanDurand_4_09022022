@@ -20,4 +20,12 @@ function launchModal() {
   modalbg.style.display = "block";
 }
 
+/* Close modal click on cross */
+let btnCloseModal = document.querySelector('.close')
+let closeModal = function () {
+  btnCloseModal.addEventListener('click', function() {
+    modalbg.style.display = "none"
+  })
+}()
+
 
