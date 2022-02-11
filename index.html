@@ -70,8 +70,8 @@
                   type="text"
                   id="firstname"
                   name="firstname"
-                  minlength="2"
                 /><br>
+                <span class="error-message">Veuillez entrer 2 caractères ou plus pour le champ du prénom</span>
               </div>
               <div
                 class="formData">
@@ -82,6 +82,7 @@
                   id="lastname"
                   name="lastname"
                 /><br>
+                <span class="error-message">Veuillez entrer 2 caractères ou plus pour le champ du nom</span>
               </div>
               <div
                 class="formData">
@@ -91,6 +92,7 @@
                   type="email"
                   id="email"
                   name="email"
+                  required
                 /><br>
               </div>
               <div
@@ -101,12 +103,13 @@
                   type="date"
                   id="birthdate"
                   name="birthdate"
+                  required
                 /><br>
               </div>
               <div
                 class="formData">
                 <label for="quantity">À combien de tournois GameOn avez-vous déjà participé ?</label><br>
-                <input type="number" class="text-control" id="quantity" name="quantity" min="0" max="99">
+                <input type="number" class="text-control" id="quantity" name="quantity" min="0" max="99" required>
               </div>
               <p class="text-label">A quel tournoi souhaitez-vous participer cette année ?</p>
               <div
@@ -186,6 +189,7 @@
                   type="checkbox"
                   id="checkbox1"
                   checked
+                  required
                 />
                 <label class="checkbox2-label" for="checkbox1" required>
                   <span class="checkbox-icon"></span>
