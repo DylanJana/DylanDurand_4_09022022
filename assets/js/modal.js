@@ -99,13 +99,36 @@ function validate() {
       }
     }
 
+    // Je verifie que l'utilisateur indique un nombre dans ce champs
     function numberOfContribution () {
+      // Je récupére la valeur du champ ayant comme ID quantity
       let participations = document.getElementById("quantity").value
-      if (participations) {
+      // Si la valeur du champ ayant l'ID quantity est un nombre et il est valide alors je renvoie true
+      if (!isNaN(participations) && participations) {
         return true
+        // Sinon je fais apparaître le message d'erreur et redesign l'input
       } else {
         errorMessage[4].style.display = 'block'
         inputError[4].style.border = '2px solid red'
+        e.preventDefault() // J'arrête le comportement par defaut du bouton submit
+        validate() // Suite à mon erreur je relance la fonction, pour permettre une nouvelle saisie
+        return false
+      }
+    }
+
+    // Je verifie que l'utilisateur a bien choisi le tournoi auquel il veut participer
+    function tournamentChoice () {
+      // Si l'une des options est choisie alors renvoi true
+      if(document.getElementById('location1').checked || 
+      document.getElementById('location2').checked ||
+      document.getElementById('location3').checked ||
+      document.getElementById('location4').checked ||
+      document.getElementById('location5').checked ||
+      document.getElementById('location6').checked) {
+        return true
+        // Sinon je fais apparaître le message d'erreur et renvoie false
+      } else {
+        errorMessage[5].style.display = 'block'
         e.preventDefault() // J'arrête le comportement par defaut du bouton submit
         validate() // Suite à mon erreur je relance la fonction, pour permettre une nouvelle saisie
         return false
@@ -117,6 +140,7 @@ function validate() {
     emailVerify()
     birthDateVerify()
     numberOfContribution()
+    tournamentChoice()
   })
 }
 
