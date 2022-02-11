@@ -11,7 +11,6 @@ function editNav() {
 const modalbg = document.querySelector(".bground");
 const modalBtn = document.querySelectorAll(".modal-btn");
 const formData = document.querySelectorAll(".formData");
-console.log(formData)
 
 // launch modal event
 modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
@@ -50,8 +49,8 @@ function validate() {
         return false
       }
     }
-// Je verifie le champ #lastname, cette fonction renvoie true si la valeur de #lastname n'est pas vide
-// Et que la valeur de ce champ est supérieur ou égal à 2 caractères
+    // Je verifie le champ #lastname, cette fonction renvoie true si la valeur de #lastname n'est pas vide
+    // Et que la valeur de ce champ est supérieur ou égal à 2 caractères
     function lastNameVerify () {
       if(form.lastname.value != "" && form.lastname.value.length >= 2) {
         return true
@@ -63,7 +62,7 @@ function validate() {
         return false
       }
     }
-// Je verifie l'email, pour cela j'utilise un regex, je teste la valeur rentrer dans le champs et je renvoie une réponse
+    // Je verifie l'email, pour cela j'utilise un regex, je teste la valeur rentrer dans le champs et je renvoie une réponse
     function checkEmail(valueEmail) {
       let regex = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
       return regex.test(valueEmail)
@@ -88,7 +87,7 @@ function validate() {
     function birthDateVerify () {
       let birthDateValue = document.getElementById("birthdate").value
       // Si la date d'anniversaire est renseignée je retourne true
-      if(birthDateValue.length !== "") {
+      if(birthDateValue) {
         return true
         // Sinon j'affiche un message d'erreur et change le design de l'input
       } else {
@@ -100,10 +99,24 @@ function validate() {
       }
     }
 
+    function numberOfContribution () {
+      let participations = document.getElementById("quantity").value
+      if (participations) {
+        return true
+      } else {
+        errorMessage[4].style.display = 'block'
+        inputError[4].style.border = '2px solid red'
+        e.preventDefault() // J'arrête le comportement par defaut du bouton submit
+        validate() // Suite à mon erreur je relance la fonction, pour permettre une nouvelle saisie
+        return false
+      }
+    }
+
     firstNameVerify()
     lastNameVerify ()
     emailVerify()
     birthDateVerify()
+    numberOfContribution()
   })
 }
 
