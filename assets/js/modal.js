@@ -41,7 +41,7 @@ function validate() {
       } else {
         errorMessage[0].style.display = 'block'
         inputError[0].style.border = '1px solid red'
-        e.preventDefault()
+        e.preventDefault() // J'arrête le comportement par defaut du bouton submit
         return false
       }
     }
@@ -53,14 +53,35 @@ function validate() {
       } else {
         let errorMessage = document.querySelectorAll('.error-message')
         errorMessage[1].style.display = 'block'
-        inputError[1].style.border = '1px solid red'
-        e.preventDefault()
+        inputError[1].style.border = '2px solid red'
+        e.preventDefault() // J'arrête le comportement par defaut du bouton submit
+        return false
+      }
+    }
+// Je verifie l'email, pour cela j'utilise un regex, je teste la valeur rentrer dans le champs et je renvoie une réponse
+    function checkEmail(valueEmail) {
+      let regex = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+      return regex.test(valueEmail)
+    }
+
+    function emailVerify () {
+      let valueEmail = document.getElementById("email").value
+      console.log(valueEmail)
+      // Si l'email a passé le test du regex et si elle n'est pas vide, je renvoie true
+      if(checkEmail(valueEmail) && valueEmail.length !== "") {
+        return true
+      // Sinon je renvoie un message d'erreur et ajouter un border rouge à mon input
+      } else {
+        errorMessage[2].style.display = 'block'
+        inputError[2].style.border = '2px solid red'
+        e.preventDefault() // J'arrête le comportement par defaut du bouton submit
         return false
       }
     }
 
     firstNameVerify()
     lastNameVerify ()
+    emailVerify()
   })
 }
 
