@@ -14,7 +14,6 @@ body {
   margin: 0;
   display: flex;
   flex-direction: column;
-  background-image: url("background.png");
   font-family: var(--font-default);
   font-size: 18px;
   max-width: 1300px;
@@ -32,7 +31,7 @@ img {
 
 .topnav {
   overflow: hidden;
-  margin: 3.5%;
+  margin: 3.5% -1% 3.5% 3.5%;
 }
 .header-logo {
     float: left;
@@ -62,10 +61,12 @@ img {
   background-color: #ff0000;
   color: #ffffff;
   border-radius: 15px;
+  text-decoration: underline;
 }
 
 .topnav .icon {
   display: none;
+  color: #ff0000;
 }
 
 @media screen and (max-width: 768px) {
@@ -73,6 +74,10 @@ img {
   .topnav a.icon {
     float: right;
     display: block;
+  }
+
+  .hero-headline {
+    font-size: 2.27rem;
   }
 }
 
@@ -97,7 +102,6 @@ img {
   .topnav a.icon {
     float: right;
     display: block;
-    margin-top: -15px;
   }
 } 
 
@@ -208,6 +212,10 @@ input {
   font-size: 20px;
   height: 48px;
 }
+
+.formData {
+  margin-bottom: 24px;
+}
 .formData[data-error]::after {
   content: attr(data-error);
   font-size: 0.4em;
@@ -239,6 +247,7 @@ input[data-error]::after {
   font-size: 12px;
   font-weight: normal;
 }
+
 .checkbox-label .checkbox-icon,
 .checkbox2-label .checkbox-icon {
   display: block;
@@ -411,11 +420,9 @@ input[data-error]::after {
   font-size: 16px;
 }
 .hero-section {
-  min-height: 93vh;
   border-radius: 10px;
   display: grid;
   grid-template-columns: repeat(12, 1fr);
-  overflow: hidden;
   box-shadow: 0 2px 7px 2px rgba(0, 0, 0, 0.2);
   margin-bottom: 10px;
 }
@@ -427,6 +434,7 @@ input[data-error]::after {
   position: relative;
   text-align: left;
   min-width: 424px;
+  border-radius: 10px;
 }
 .hero-content::after {
   content: "";
@@ -456,18 +464,20 @@ input[data-error]::after {
   outline: none;
   text-transform: capitalize;
   font-size: 1.3rem;
-  padding: 15px 23px;
+  padding: 15px 30px;
   margin: 0;
   margin-top: 59px;
 }
 .hero-img {
   grid-column: span 8;
 }
+
 .hero-img img {
   width: 100%;
   height: 100%;
   display: block;
   padding: 0;
+  border-radius: 10px;
 }
 .copyrights {
   color: #fe142f;
@@ -479,11 +489,7 @@ input[data-error]::after {
 .hero-section > .btn-signup {
   display: none;
 }
-footer {
-  padding-left: 2vw;
-  padding-right: 2vw;
-  margin: 0 20px;
-}
+
 @media screen and (max-width: 800px) {
   .hero-section {
     display: block;
