@@ -40,6 +40,8 @@ function validate() {
     // Et que la valeur de ce champ est supérieur ou égal à 2 caractères
     function firstNameVerify () {
       if(form.firstname.value != "" && form.firstname.value.length >= 2) {
+        errorMessage[0].style.display = 'none'
+        inputError[0].style.border = '0.8px solid #ccc'
         return true
       } else {
         errorMessage[0].style.display = 'block'
@@ -53,6 +55,8 @@ function validate() {
     // Et que la valeur de ce champ est supérieur ou égal à 2 caractères
     function lastNameVerify () {
       if(form.lastname.value != "" && form.lastname.value.length >= 2) {
+        errorMessage[1].style.display = 'none'
+        inputError[1].style.border = '0.8px solid #ccc'
         return true
       } else {
         errorMessage[1].style.display = 'block'
@@ -72,6 +76,8 @@ function validate() {
       let valueEmail = document.getElementById("email").value
       // Si l'email a passé le test du regex et si elle n'est pas vide, je renvoie true
       if(checkEmail(valueEmail) && valueEmail.length !== "") {
+        errorMessage[2].style.display = 'none'
+        inputError[2].style.border = '0.8px solid #ccc'
         return true
       // Sinon je renvoie un message d'erreur et ajouter un border rouge à mon input
       } else {
@@ -88,6 +94,8 @@ function validate() {
       let birthDateValue = document.getElementById("birthdate").value
       // Si la date d'anniversaire est renseignée je retourne true
       if(birthDateValue) {
+        errorMessage[3].style.display = 'none'
+        inputError[3].style.border = '0.8px solid #ccc'
         return true
         // Sinon j'affiche un message d'erreur et change le design de l'input
       } else {
@@ -105,6 +113,8 @@ function validate() {
       let participations = document.getElementById("quantity").value
       // Si la valeur du champ ayant l'ID quantity est un nombre et il est valide alors je renvoie true
       if (!isNaN(participations) && participations) {
+        errorMessage[4].style.display = 'none'
+        inputError[4].style.border = '0.8px solid #ccc'
         return true
         // Sinon je fais apparaître le message d'erreur et redesign l'input
       } else {
@@ -125,10 +135,26 @@ function validate() {
       document.getElementById('location4').checked ||
       document.getElementById('location5').checked ||
       document.getElementById('location6').checked) {
+        errorMessage[5].style.display = 'none'
         return true
         // Sinon je fais apparaître le message d'erreur et renvoie false
       } else {
         errorMessage[5].style.display = 'block'
+        e.preventDefault() // J'arrête le comportement par defaut du bouton submit
+        validate() // Suite à mon erreur je relance la fonction, pour permettre une nouvelle saisie
+        return false
+      }
+    }
+
+    function checkBoxLegalVerify () {
+      let checkBox = document.querySelector('.checkbox2-label .checkbox-icon')
+      if(document.getElementById('checkbox1').checked) {
+        checkBox.style.border = "1px solid transparent"
+        errorMessage[6].style.display = 'none'
+        return true
+      } else {
+        checkBox.style.border = "2px solid red"
+        errorMessage[6].style.display = 'block'
         e.preventDefault() // J'arrête le comportement par defaut du bouton submit
         validate() // Suite à mon erreur je relance la fonction, pour permettre une nouvelle saisie
         return false
@@ -141,6 +167,7 @@ function validate() {
     birthDateVerify()
     numberOfContribution()
     tournamentChoice()
+    checkBoxLegalVerify()
   })
 }
 
