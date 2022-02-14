@@ -445,8 +445,8 @@ input[data-error]::after {
 }
 .hero-img {
   grid-column: span 8;
-  background-image: url('assets/img/fille_gaming.png');
-  background-size: contain;
+  background-image: url('/assets/img/fille_gaming.png');
+  background-size: 700px 700px;
   background-position: 100%;
 }
 
