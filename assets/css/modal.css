@@ -84,7 +84,7 @@ main {
   font-weight: bolder;
   color: black;
   padding-top: 0.5vw;
-  margin: 1px 20px 15px;
+  margin: 20px 3.5%;
   border-radius: 2rem;
   text-align: justify;
 
@@ -524,6 +524,7 @@ input {
     position: absolute;
     right: 0px;
     top: 0px;
+    margin: 3.5%;
   }
 
   .topnav.responsive a {
@@ -566,6 +567,10 @@ input {
 .hero-text {
   font-size: 0.72rem;
   margin-top: 17px;
+}
+
+.header-logo img {
+  margin-top: 20px;
 }
 
 .topnav {
