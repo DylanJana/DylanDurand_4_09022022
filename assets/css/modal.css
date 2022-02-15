@@ -569,8 +569,9 @@ input {
   margin-top: 17px;
 }
 
-.header-logo img {
-  margin-top: 20px;
+.header-logo {
+  width: 40%;
+  margin-top: 0;
 }
 
 .topnav {
