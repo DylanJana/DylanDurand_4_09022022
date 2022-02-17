@@ -442,6 +442,26 @@ input {
   font-size: 16px;
 }
 
+/* Message de confirmation d'inscription */
+.confirm-message {
+  height: 889px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.confirm-message h2 {
+  font-size: 3rem;
+  text-align: center;
+}
+
+.close-modal {
+  position: absolute;
+  bottom: 0;
+}
+
 @media screen and (max-width: 991px) {
   .hero-headline {
     font-size: 5rem;
