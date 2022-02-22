@@ -55,7 +55,7 @@ img {
   display: block;
   color: #000000;
   text-align: center;
-  padding: 20px 20px;
+  padding: 15px 15px;
   text-decoration: none;
   font-size: 20px;
   font-family: Roboto, sans-serif;
@@ -442,6 +442,10 @@ input {
   font-size: 16px;
 }
 
+.topnav a.active {
+  margin-right: 8px;
+}
+
 /* Message de confirmation d'inscription */
 .confirm-message {
   height: 889px;
@@ -534,6 +538,10 @@ input {
     display: block;
   }
 
+  .topnav a {
+    margin-bottom: 8px;
+  }
+
   .hero-headline {
     font-size: 2.27rem;
   }
@@ -607,7 +615,7 @@ main {
 }
 
 .content {
-  margin: 87px auto 0 auto;
+  margin: 85px auto 0 auto;
 }
 
 .checkbox-label, .checkbox2-label {
