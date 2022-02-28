@@ -419,7 +419,7 @@ input {
 }
 .hero-img {
   grid-column: span 8;
-  background-image: url('/assets/img/fille_gaming.png');
+  background-image: url('/assets/img/fille_gaming_bg.png');
   background-size: 753px;
   background-position: 100%;
 }
